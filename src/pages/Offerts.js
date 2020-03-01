@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components';
 import Product from '../components/organism/Prodcut';
+import {graphql} from 'gatsby'; 
 const StyledGrid = styled.div`
 width : 100%; 
 min-height: 80%; 
@@ -15,6 +16,10 @@ padding : 10px;
 
 @media(min-width:1000px){ 
     grid-template-columns: repeat(3, 1fr); 
+}
+
+@media(min-width:2000px){ 
+    grid-template-columns: repeat(4, 1fr); 
 }
 `
 
@@ -37,20 +42,34 @@ padding-top: 100px;
 
 `
 
+export const query = graphql`
+query Offerts {
+    allDatoCmsOferty {
+      nodes {
+        nazwaPojazdu
+        opis
+        id
+        link
+        zdjecie {
+            fluid {
+                ...GatsbyDatoCmsFluid_tracedSVG
+          }
+        }
+      }
+    }
+  }
+  
+`
+const Offerts = ({data}) => {
 
-const Offerts = () => (
+return(
     <StyledWrapper>
         <StyledTittle>Aktualne Oferty</StyledTittle>
         <StyledGrid>
-        <Product/>
-        <Product/>
-        <Product/>
-        <Product/>
-        <Product/>
-        <Product/>
+            {data.allDatoCmsOferty.nodes.map(item => <Product key={item.id} fluid={item.zdjecie.fluid} data={item}/>)}
         </StyledGrid>
         </StyledWrapper>
 
 )
-
+}
 export default Offerts

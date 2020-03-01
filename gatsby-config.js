@@ -1,4 +1,6 @@
+require('dotenv').config()
 module.exports = {
+  
   siteMetadata: {
     title: `Gatsby Default Starter`,
     description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
@@ -35,9 +37,18 @@ module.exports = {
         fonts: [
           {
             family: 'Ubuntu',
-            variants: ['400', '600', '700']
+            subsets:['latin-ext'],
+            variants: ['400', '600', '700'],
           }
         ]
+      }
+    },
+    {
+      resolve: `gatsby-source-datocms`,
+      options: {
+        // You can find your read-only API token under the Settings > API tokens
+        // section of your administrative area:
+        apiToken: process.env.API_DATO_CMS,
       }
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
