@@ -184,7 +184,7 @@ class Gallery extends React.Component{
         {data.allDatoCmsCarsgallery.nodes.map(item => item.carphotos.map(({fluid})=><div key={fluid.src}><StyledLightbox onClick={()=>{this.handlePreview(fluid)}} >
         <StyledImage fluid={fluid}/>
              </StyledLightbox>
-             </div>
+        </div>
              ))}
 
         </StyledGrid>
