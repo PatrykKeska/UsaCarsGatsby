@@ -6,7 +6,7 @@ import mainBackground4 from '../assets/images/mainBackground4.jpg';
 import Repair from '../components/organism/Repair';
 import Experince from '../components/organism/Experince';
 export const aboutQuery = graphql`
-{
+query aboutus{
     allImageSharp(sort: {fields: original___src, order: ASC}){
     nodes {
       fluid {

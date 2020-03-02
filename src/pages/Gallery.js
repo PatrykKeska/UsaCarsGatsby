@@ -134,7 +134,7 @@ font-size: 2em;
 `
 
 export const casrsCms = graphql`
-  {
+  query photosquery{
     allDatoCmsCarsgallery {
       nodes {
         carphotos {
