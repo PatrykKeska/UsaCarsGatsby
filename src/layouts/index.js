@@ -1,6 +1,6 @@
 
 import React from "react"
-import GlobalStyle from '../assets/styles/globalStyles'
+import GlobalStyle from '../assets/styles/GlobalStyles'
 import Navigation from "../components/atoms/Navigation/Navigation"
 
 
