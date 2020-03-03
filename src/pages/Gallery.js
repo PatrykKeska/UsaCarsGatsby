@@ -57,7 +57,7 @@ transition: .2s linear;
 const StyledLightbox = styled.div`
 height:20vh; 
 
-@media(max-width:800px) and (orientation:landscape){ 
+@media(max-width:900px) and (orientation:landscape){ 
     height: 60vh;
 }
 
