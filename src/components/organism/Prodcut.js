@@ -75,7 +75,7 @@ const Product = ({data, fluid})=> (
 <StyledProductTittle>{data.nazwaPojazdu}</StyledProductTittle>
         <StyledProductImage fluid={fluid}/>
 <StyledProductDescription>{data.opis}</StyledProductDescription>
-<StyledButton href={`https://${data.link}`}>Aukcja</StyledButton>
+<StyledButton target="_blank"  href={`${data.link}`}>Aukcja</StyledButton>
         </StyledProduct>
 
 )

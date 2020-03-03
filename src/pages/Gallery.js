@@ -17,21 +17,21 @@ flex-direction: column;
 const StyledGrid = styled.div`
 display: grid; 
 position: relative;
-grid-template-columns: repeat(1, 1fr); 
+grid-template-columns: repeat(2, 1fr); 
 width: 100%; 
 height: 90%;
 grid-gap: 20px; 
 padding: 50px 10px;  
 @media(min-width: 640px){ 
-    grid-template-columns: repeat(2, 1fr); 
-}
-
-@media(min-width:1000px){ 
     grid-template-columns: repeat(3, 1fr); 
 }
 
-@media(min-width:2000px){ 
+@media(min-width:1000px){ 
     grid-template-columns: repeat(4, 1fr); 
+}
+
+@media(min-width:2000px){ 
+    grid-template-columns: repeat(6, 1fr); 
 }
 `
 
@@ -43,7 +43,7 @@ font-size: 1.5em;
 text-align: center;
 `
 const StyledImage = styled(Image)`
-height: 100%;
+height: 90%;
 width: 100%;
 max-height: 400px; 
 border-radius: 20px;
@@ -55,10 +55,10 @@ transition: .2s linear;
 `
 
 const StyledLightbox = styled.div`
-height:40vh; 
+height:20vh; 
 
 @media(max-width:800px) and (orientation:landscape){ 
-    height: 50vh;
+    height: 60vh;
 }
 
 `
@@ -79,11 +79,11 @@ background-position: center;
 background-repeat: no-repeat; 
 background-image: url(${({src})=> src}); 
 animation: show .2s linear both;
-box-shadow: 0 0 10px 5px white; 
+box-shadow: 0 0 15px 5px white; 
 will-change: transform; 
 
 @media(max-width: 1024px) and (orientation: landscape){ 
-  top: 50%; 
+  top: 45%; 
   width : 80vw; 
 height: 80vh; 
 }
@@ -119,17 +119,19 @@ z-index: 10;
 `
 
 const ButtonXLightbox = styled.button`
-color : crimson; 
-border: none ;
+color : crimson;
+font-family: Ubuntu;
+font-weight: bold;  
+border : none; 
 background: none; 
 position: absolute; 
-top: -1%;
+top: -4%;
 right: -1%;
-transform:translate(30%,-40%); 
+transform:translate(0%, 0%); 
 font-size: 1em; 
-padding : 5px;
+padding: 20px;
 border-radius: 20px;
-font-size: 2em;
+font-size: 1.5em;
 
 `
 
@@ -176,7 +178,7 @@ class Gallery extends React.Component{
     <>
         {this.state.isOpen  ? <> <StyledBackground onClick={()=>{this.closePreview()}}>
           </StyledBackground> 
-          <StyledFrame src={this.state.src}>  <ButtonXLightbox onClick={()=>(this.closePreview())}>X</ButtonXLightbox></StyledFrame> </>: null}
+          <StyledFrame src={this.state.src}>  <ButtonXLightbox onClick={()=>(this.closePreview())}>x</ButtonXLightbox></StyledFrame> </>: null}
     <StyledWrapper>
         <StyledHeading>Przykładowe modele które sprowadziliśmy</StyledHeading>
         <StyledGrid>
