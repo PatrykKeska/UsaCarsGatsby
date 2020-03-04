@@ -1,5 +1,5 @@
 import React from 'react'
-import styled, {css} from 'styled-components';
+import styled from 'styled-components';
 import {graphql} from 'gatsby'; 
 import Image from 'gatsby-image';
 
@@ -26,12 +26,18 @@ padding: 50px 10px;
     grid-template-columns: repeat(3, 1fr); 
 }
 
-@media(min-width:1000px){ 
+@media(min-width:900px){ 
     grid-template-columns: repeat(4, 1fr); 
 }
 
-@media(min-width:2000px){ 
+@media(min-width:1200px){ 
+    grid-template-columns: repeat(5, 1fr); 
+}
+@media(min-width:1600px){ 
     grid-template-columns: repeat(6, 1fr); 
+}
+@media(min-width:2000px){ 
+    grid-template-columns: repeat(8, 1fr); 
 }
 `
 
@@ -50,6 +56,11 @@ border-radius: 20px;
 box-shadow: 0 0 5px 2px black;
 transition: .2s linear;
 
+:hover { 
+  cursor: pointer;
+  box-shadow: 0 0 2px 2px white;
+  transform: scale(.95);  
+}
 
 
 `
@@ -61,23 +72,25 @@ height:20vh;
     height: 60vh;
 }
 
+
 `
 
-const StyledFrame = styled.div`
+const StyledFrame = styled(Image)`
 width : 95vw; 
 height: 80vw; 
 max-width: 1200px; 
 max-height: 800px;
-position: fixed;
+position: fixed !important;
 perspective: 1000px;
 top: 45%; 
 left: 50%; 
-transform: translate(-50%,-50%); 
+/* transform: translate(-50%,-50%);  */
 z-index: 15;
-background-size: cover;
+object-fit: fit;
+/* background-size: cover;
 background-position: center; 
 background-repeat: no-repeat; 
-background-image: url(${({src})=> src}); 
+background-image: url(${({src})=> src});  */
 animation: show .2s linear both;
 box-shadow: 0 0 15px 5px white; 
 will-change: transform; 
@@ -105,7 +118,6 @@ transform: translate(-50%,-50%)scale(.6);
   }
 }
 
-
 `
 
 const StyledBackground = styled.div`
@@ -118,21 +130,37 @@ height: 100%;
 z-index: 10; 
 `
 
-const ButtonXLightbox = styled.button`
-color : crimson;
+const ButtonClosePreview = styled.button`
+color : white;
 font-family: Ubuntu;
 font-weight: bold;  
 border : none; 
 background: none; 
-position: absolute; 
-top: -4%;
-right: -1%;
-transform:translate(0%, 0%); 
+position: fixed; 
+bottom : 8em; 
+right: 50%; 
+transform: translate(50%,50%);  
 font-size: 1em; 
 padding: 20px;
 border-radius: 20px;
-font-size: 1.5em;
+font-size: 1em;
+font-weight: lighter; 
+z-index: 16;
+transition: all .2s linear; 
 
+:hover { 
+  cursor: pointer; 
+  color: crimson;
+}
+
+@media(orientation:portrait)and (max-width:600px){
+bottom : 25%;
+
+}
+
+@media(orientation:landscape){ 
+  bottom: 5%; 
+}
 `
 
 export const casrsCms = graphql`
@@ -162,7 +190,7 @@ class Gallery extends React.Component{
   handlePreview(fluid){ 
     this.setState({ 
      isOpen: true, 
-     src : fluid.src, 
+     src : fluid, 
     })
  }
 
@@ -172,13 +200,19 @@ class Gallery extends React.Component{
      src : '', 
    })
  }
+
+
+ componentDidMount(){
+
+}
     render(){
     const {data} = this.props; 
         return(
     <>
         {this.state.isOpen  ? <> <StyledBackground onClick={()=>{this.closePreview()}}>
           </StyledBackground> 
-          <StyledFrame src={this.state.src}>  <ButtonXLightbox onClick={()=>(this.closePreview())}>x</ButtonXLightbox></StyledFrame> </>: null}
+          <ButtonClosePreview onClick={()=>(this.closePreview())}>close</ButtonClosePreview>
+          <StyledFrame fluid={this.state.src}/> </>: null}
     <StyledWrapper>
         <StyledHeading>Przykładowe modele które sprowadziliśmy</StyledHeading>
         <StyledGrid>

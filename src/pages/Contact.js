@@ -2,12 +2,15 @@ import React from 'react'
 import styled from 'styled-components';
 import {Formik} from 'formik'; 
 import axios from 'axios';
+
 const StyledWrapper = styled.div`
 width : 100%; 
-min-height: 120vh; 
+min-height: 100vh; 
 background-color: #1EBDE0;
 position: relative;
 padding-top:200px ; 
+padding-bottom: 100px;
+
 
 form{ 
     display : flex; 
@@ -31,8 +34,8 @@ text-align: center;
 
 const StyledInput = styled.input`
 display: block ; 
-width : 80% ;
-max-width: 500px;
+width : 70% ;
+max-width: 400px;
 min-width: 200px;
 height: 30px; 
 background: none; 
@@ -71,13 +74,55 @@ padding: 5px 5px;
 border-radius: 20px;
 line-height: 25px;
 box-shadow: 0 0 5px 2px white;
-/* position: absolute;  */
-/* bottom: 2%;  */
 transition: .2s linear; 
 will-change: box-shadow;
 :hover{ 
     box-shadow: 0 0 5px 5px greenyellow; 
 }
+`
+
+const StyledFacebook = styled.a`
+display: block;
+color: white; 
+font-weight: bold; 
+font-size: .9em; 
+width : 60%; 
+max-width : 400px;
+border-radius:10px;
+transition: .2s linear;
+position: relative;
+text-align: center;
+left: 50%; 
+transform: translate(-50%, 50%);
+padding : 10px;
+text-decoration: none;
+text-shadow: 2px 2px black;
+overflow : hidden;
+box-shadow: 0 0 5px 2px royalblue;
+
+
+:after{ 
+  width : 100%; 
+  height: 100%; 
+  background-color : royalblue; 
+  content: '';
+  display: block;
+  position: absolute; 
+  top: 0; 
+  left : -100%; 
+  z-index: -1;
+  transition: all .2s linear;
+
+
+
+
+}
+
+:hover ::after { 
+  cursor: pointer; 
+  transform: translateX(100%);
+}
+
 `
 
 const Contact = () => (
@@ -132,6 +177,9 @@ const Contact = () => (
       </form>
       )}
     </Formik>
+
+
+<StyledFacebook href="https://www.facebook.com/usasamochody/" target="_blank">Odwiedź nasz Facebook!</StyledFacebook>
 
     </StyledWrapper>
 

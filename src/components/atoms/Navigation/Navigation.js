@@ -8,20 +8,23 @@ justify-content : flex-start;
 align-items : center ; 
 font-family:'ubuntu';
 position: fixed;
-top: 5%; 
+top: 3%; 
 left : 2%; 
 z-index: 10; 
 a{ 
     text-decoration : none; 
     color : inherit; 
 }
+
+
 `
     ;
 const Logo = styled.span`
-font-size: 20px;
+font-size: 1em;
 font-weight : 700;  
 margin-right : 10px;
 color: white;
+text-shadow: 2px 2px black; 
 
 
 `
@@ -33,15 +36,16 @@ padding : 0 ;
 list-style : none ; 
 display : flex; 
 
+
 `
 
 
 const NavigaitonListItem = styled.li`
 font-weight : 700; 
-font-size : 17px; 
+font-size : .9em; 
 margin-left : 32px; 
 color: white;
-
+text-shadow: 2px 2px black; 
 
 
 `
