@@ -12,6 +12,19 @@ display: flex;
 justify-content: flex-start; 
 align-items: center; 
 flex-direction: column;
+animation: showGallery .3s linear ; 
+
+@keyframes showGallery {
+0%{ 
+    opacity: 0; 
+    transform: translateX(50vw); 
+}
+
+100%{ 
+    opacity :1; 
+    transform: translate(0); 
+}
+}
 `
 
 const StyledGrid = styled.div`
@@ -203,7 +216,11 @@ class Gallery extends React.Component{
 
 
  componentDidMount(){
+ document.addEventListener('keydown',()=> (this.closePreview()))
+}
 
+componentWillUnmount(){ 
+  document.removeEventListener('keydown', ()=>(this.closePreview()) ); 
 }
     render(){
     const {data} = this.props; 

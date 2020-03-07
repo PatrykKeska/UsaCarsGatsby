@@ -39,7 +39,18 @@ width : 100vw;
 min-height: 100vh; 
 background-color:#1EBDE0;
 padding-top: 100px;
+animation: showOfferts .3s linear ; 
+@keyframes showOfferts {
+0%{ 
+    opacity: 0; 
+    transform: translateX(30vw); 
+}
 
+100%{ 
+    opacity :1; 
+    transform: translate(0); 
+}
+}
 `
 
 export const query = graphql`

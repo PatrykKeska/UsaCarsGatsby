@@ -9,6 +9,18 @@ width : 100%;
 height: 100vh; 
 overflow: hidden;
 position: relative;
+animation: showIndex .3s linear ; 
+@keyframes showIndex {
+0%{ 
+    opacity: 0; 
+    transform: translateX(30vw); 
+}
+
+100%{ 
+    opacity :1; 
+    transform: translate(0); 
+}
+}
 
 
 h1{ 

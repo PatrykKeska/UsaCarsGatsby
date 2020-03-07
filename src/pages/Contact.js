@@ -10,6 +10,18 @@ background-color: #1EBDE0;
 position: relative;
 padding-top:200px ; 
 padding-bottom: 100px;
+animation: showOfferts .3s linear ; 
+@keyframes showContact {
+0%{ 
+    opacity: 0; 
+    transform: translateX(30vw); 
+}
+
+100%{ 
+    opacity :1; 
+    transform: translate(0); 
+}
+}
 
 
 form{ 
@@ -138,7 +150,7 @@ const Contact = () => (
         }).catch((err)=>{ 
             console.log(err)
             setSubmitting(false)
-        }) 
+        })  
       }}
     >
       {({
