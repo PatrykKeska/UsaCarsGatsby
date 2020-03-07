@@ -39,7 +39,7 @@ animation: showNav .3s linear ;
     width :100%; 
     height: 100%; 
     filter: blur(15px);
-    opacity: .5;
+    opacity: .7;
     z-index: -1;
     background-color: darkturquoise;
 }
@@ -136,18 +136,18 @@ const BurgerButton = styled.button`
     display: none; 
 }
 width : 80px; 
-height: 30px; 
+height: 40px; 
 color: white; 
 background-color: royalblue;  
 text-shadow: 2px 2px black; 
 border: none; 
-padding : 3px 5px; 
+padding : 5px 5px; 
 position: fixed; 
 top: 2%; 
 left: 5%;
 z-index: 10;
 border-radius: 20px;
-font-size: .7em;
+font-size: .8em;
 
 `
 
