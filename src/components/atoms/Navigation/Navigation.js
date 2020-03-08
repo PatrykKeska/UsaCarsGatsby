@@ -5,6 +5,8 @@ import contactIcon from '../../../assets/icons/contacts.svg'
 import galleryIcon from '../../../assets/icons/photograph.svg'
 import ofertsIcon from '../../../assets/icons/supermarket.svg'
 import aboutIcon from '../../../assets/icons/user.svg'
+import hero from '../../../assets/hero/headerMobile.jpg'
+import heroLand from '../../../assets/hero/header.jpg'
 
 
 
@@ -43,10 +45,17 @@ animation: showNav .3s linear ;
     left: 0;
     width :100%; 
     height: 100%; 
-    filter: blur(15px);
-    opacity: .7;
+    filter: blur(10px)grayscale(.5);
+    opacity: 1;
     z-index: -1;
-    background-color: darkturquoise;
+    background-image: url(${hero});
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat;
+
+    @media(orientation : landscape){ 
+        background-image: url(${heroLand});
+    }
 }
 
 
