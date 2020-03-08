@@ -2,9 +2,11 @@ require('dotenv').config()
 module.exports = {
   
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `KSMAK Cars, sprowadzamy samochody z USA!`,
+    description: `Sprowadzamy samochody z Usa, mamy kilku letnie doświadczenie oraz umiejętności w tym co robimy.
+    Z nami masz pewność że twój wymarzony samochód spełni twoje oczekiwania! Nie czekaj zapraszamy do kontaktu.
+    `,
+    author: `KSMAK Cars`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

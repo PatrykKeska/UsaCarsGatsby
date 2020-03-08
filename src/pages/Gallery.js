@@ -89,21 +89,16 @@ height:20vh;
 `
 
 const StyledFrame = styled(Image)`
-width : 95vw; 
-height: 80vw; 
+width : 90vw; 
+height: 70vw; 
 max-width: 1200px; 
 max-height: 800px;
 position: fixed !important;
 perspective: 1000px;
 top: 45%; 
 left: 50%; 
-/* transform: translate(-50%,-50%);  */
 z-index: 15;
 object-fit: fit;
-/* background-size: cover;
-background-position: center; 
-background-repeat: no-repeat; 
-background-image: url(${({src})=> src});  */
 animation: show .2s linear both;
 box-shadow: 0 0 15px 5px white; 
 will-change: transform; 
@@ -216,7 +211,7 @@ class Gallery extends React.Component{
 
 
  componentDidMount(){
- document.addEventListener('keydown',()=> (this.closePreview()))
+ document.addEventListener('keydown',(e)=>{if(e.key==="Escape"){ (this.closePreview())}})
 }
 
 componentWillUnmount(){ 
