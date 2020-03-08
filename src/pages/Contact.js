@@ -110,7 +110,7 @@ padding : 10px;
 text-decoration: none;
 text-shadow: 2px 2px black;
 overflow : hidden;
-box-shadow: 0 0 5px 2px royalblue;
+
 
 
 :after{ 

@@ -70,12 +70,12 @@ will-change: box-shadow;
 `
 
 
-const Product = ({data, fluid})=> ( 
+const Product = ({data})=> ( 
 <StyledProduct>
-<StyledProductTittle>{data.nazwaPojazdu}</StyledProductTittle>
-        <StyledProductImage fluid={fluid}/>
-<StyledProductDescription>{data.opis}</StyledProductDescription>
-<StyledButton target="_blank"  href={`${data.link}`}>Aukcja</StyledButton>
+<StyledProductTittle>{data.carName}</StyledProductTittle>
+        <StyledProductImage fluid={data.carPhoto.fluid}/>
+<StyledProductDescription>{data.carDescription}</StyledProductDescription>
+<StyledButton target="_blank"  href={`${data.auctionLink}`}>Aukcja</StyledButton>
         </StyledProduct>
 
 )

@@ -55,29 +55,32 @@ animation: showOfferts .3s linear ;
 
 export const query = graphql`
 query Offerts {
-    allDatoCmsOferty {
-      nodes {
-        nazwaPojazdu
-        opis
-        id
-        link
-        zdjecie {
+    allDatoCmsOffert {
+        nodes {
+          carName
+          carDescription
+          id
+          auctionLink
+          carPhoto {
             fluid {
-                ...GatsbyDatoCmsFluid_tracedSVG
+            ...GatsbyDatoCmsFluid_tracedSVG
+            src
+            }
           }
         }
       }
     }
-  }
   
 `
+
+
 const Offerts = ({data}) => {
 
 return(
     <StyledWrapper>
         <StyledTittle>Aktualne Oferty</StyledTittle>
         <StyledGrid>
-            {data.allDatoCmsOferty.nodes.map(item => <Product key={item.id} fluid={item.zdjecie.fluid} data={item}/>)}
+            {data.allDatoCmsOffert.nodes.map(item => <Product key={item.id} data={item}/>)}
         </StyledGrid>
         </StyledWrapper>
 

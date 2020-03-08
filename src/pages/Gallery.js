@@ -110,7 +110,7 @@ height: 80vh;
 }
 @media(min-width: 1025px) and (orientation: landscape){ 
   width : 95vw; 
-height: 80vw; 
+height: 80vh; 
 }
 
 
@@ -173,9 +173,9 @@ bottom : 25%;
 
 export const casrsCms = graphql`
   query photosquery{
-    allDatoCmsCarsgallery {
+    allDatoCmsGallery {
       nodes {
-        carphotos {
+        photos {
           fluid {
             src
             ...GatsbyDatoCmsFluid_tracedSVG
@@ -229,7 +229,7 @@ componentWillUnmount(){
         <StyledHeading>Przykładowe modele które sprowadziliśmy</StyledHeading>
         <StyledGrid>
 
-        {data.allDatoCmsCarsgallery.nodes.map(item => item.carphotos.map(({fluid})=><div key={fluid.src}><StyledLightbox onClick={()=>{this.handlePreview(fluid)}} >
+        {data.allDatoCmsGallery.nodes.map(item => item.photos.map(({fluid})=><div key={fluid.src}><StyledLightbox onClick={()=>{this.handlePreview(fluid)}} >
         <StyledImage fluid={fluid}/>
              </StyledLightbox>
         </div>
