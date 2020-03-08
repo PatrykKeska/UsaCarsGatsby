@@ -75,6 +75,7 @@ text-shadow: 2px 2px black;
 
 @media(max-width:900px){ 
 margin-bottom: 20px;
+font-size: 1.5em;
 
 }
 
@@ -131,6 +132,7 @@ width: 100%;
 height: 100%; 
 text-align: center; 
 box-sizing: border-box;
+font-size: 1.3em;
 @media(min-width:901px){
     
 :hover :before{ 
