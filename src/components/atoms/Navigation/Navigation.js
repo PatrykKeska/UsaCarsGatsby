@@ -26,10 +26,11 @@ a{
 
 @media(max-width:900px){ 
 flex-direction: column;
-justify-content : center; 
+justify-content : flex-start;
+padding-top: 60px; 
 width : 100vw; 
 height: 100vh; 
-background-color: rgba(0,0,0,.4); 
+background-color: rgba(0,0,0,.7); 
 top: 0; 
 left: 0;
 z-index: 5;
@@ -134,7 +135,7 @@ text-align: center;
 box-sizing: border-box;
 font-size: 1.3em;
 @media(min-width:901px){
-    
+font-size: .9em;
 :hover :before{ 
     transform:translateX(100%);
 } 
