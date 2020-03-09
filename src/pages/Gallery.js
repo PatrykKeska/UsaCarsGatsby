@@ -105,11 +105,11 @@ will-change: transform;
 
 @media(max-width: 1024px) and (orientation: landscape){ 
   top: 45%; 
-  width : 80vw; 
-height: 80vh; 
+  width : 65vw; 
+height: 70vh; 
 }
 @media(min-width: 1025px) and (orientation: landscape){ 
-  width : 95vw; 
+  width : 70vw; 
 height: 80vh; 
 }
 
