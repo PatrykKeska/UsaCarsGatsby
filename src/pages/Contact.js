@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components';
-import {Formik} from 'formik'; 
+import { Formik } from 'formik';
 import axios from 'axios';
 
 const StyledWrapper = styled.div`
@@ -124,64 +124,118 @@ overflow : hidden;
 
 `
 
-const Contact = () => (
+const ModalSubmited = styled.div`
+width : 80vw; 
+height: 60vh;
+max-width : 600px; 
+max-height: 400px; 
+position : fixed; 
+top: 50%; 
+left : 50%; 
+transform: translate(-50%,-50%); 
+background-color: whitesmoke;
+display : flex; 
+justify-content : center; 
+align-items: center; 
+flex-direction : column; 
+z-index : 20; 
+box-shadow : 0 0 20px 5px black;
+
+h2{
+  color :#1EBDE0;
+  font-size : 1em;
+  text-align : center; 
+}
+
+p { 
+  color : #1EBDE0;
+  font-size : .8em;
+  text-align : center; 
+}
+
+button { 
+  background : #1EBDE0; 
+  color : white; 
+  font-size : .9em; 
+  width : 120px; 
+  height : 50px; 
+  border-radius:10px; 
+  transition : .2s linear; 
+ :hover { 
+   cursor: pointer; 
+   transform : scale(1.1); 
+ } 
+}
+`
+
+const Contact = () => {
+  const [isSubmitted, setState] = useState(false)
+
+  return (
     <StyledWrapper>
-        <StyledTittle>Zapraszamy do Kontaktu! </StyledTittle>
-        <Formik
-      initialValues={{ name :'', email: '', message: '' }}
+      {isSubmitted ? <ModalSubmited>
+        <h2>Wiadomość została wysłana</h2>
+        <p>Postaramy się sprawnie udzielić odpowiedzi!</p>
+        <button onClick={() => (setState(false))}>Zamknij</button>
+      </ModalSubmited> : null}
+      {console.log(isSubmitted)}
+      <StyledTittle>Zapraszamy do Kontaktu! </StyledTittle>
+      <Formik
+        initialValues={{ name: '', email: '', message: '' }}
 
-      onSubmit={(values, { setSubmitting }) => {
-        axios.post("https://us-central1-ksmakcars.cloudfunctions.net/sendEmail", values).then((res)=>{ 
+        onSubmit={(values, { setSubmitting }) => {
+          axios.post("https://us-central1-ksmakcars.cloudfunctions.net/sendEmail", values).then((res) => {
             setSubmitting(false)
-            console.log(res)
-        }).catch((err)=>{ 
-            console.log(err)
-            setSubmitting(false)
-        })  
-      }}
-    >
-      {({
-        values,
-        handleChange,
-        handleBlur,
-        handleSubmit,
-        isSubmitting,
-        /* and other goodies */
-      }) => (
-          <form onSubmit={handleSubmit}>
-        <StyledLabel htmlFor="name">Imię</StyledLabel>
-             <StyledInput onChange={handleChange}
-            onBlur={handleBlur}
-            value={values.name}
-             type="text" 
-             name="name" 
-             id="name" />
-         <StyledLabel htmlFor="email">Email</StyledLabel>
-             <StyledInput onChange={handleChange}
-            onBlur={handleBlur}
-            value={values.email} 
-            type="e-mail"
-             name="email"
-              id="email" />
-         <StyledLabel htmlFor="message">Wiadomość</StyledLabel>
-             <StyledInput onChange={handleChange}
-            onBlur={handleBlur}
-            value={values.message}
-             as="textarea"
-              type="text"
-              style={{height: '150px', width: '80%', maxWidth:'500px'}}
-            name="message"
-            id="message" />
-      <StyledButton type="submit" disabled={isSubmitting}>Wyślij</StyledButton>
-      </form>
-      )}
-    </Formik>
+            setState(true)
+          }).catch((err) => {
+            if (err) { alert("Coś poszło nie tak, spóbuj jeszcze raz ") }
+          })
+        }}
+      >
+        {({
+          values,
+          handleChange,
+          handleBlur,
+          handleSubmit,
+          isSubmitting,
+
+          /* and other goodies */
+        }) => (
+            <form onSubmit={handleSubmit}>
+              <StyledLabel htmlFor="name">Imię</StyledLabel>
+              <StyledInput onChange={handleChange}
+                onBlur={handleBlur}
+                value={values.name}
+                type="text"
+                name="name"
+                id="name" />
+              <StyledLabel htmlFor="email">Email</StyledLabel>
+              <StyledInput onChange={handleChange}
+                onBlur={handleBlur}
+                value={values.email}
+                type="e-mail"
+                name="email"
+                id="email" />
+              <StyledLabel htmlFor="message">Wiadomość</StyledLabel>
+              <StyledInput onChange={handleChange}
+                onBlur={handleBlur}
+                value={values.message}
+                as="textarea"
+                type="text"
+                style={{ height: '150px', width: '80%', maxWidth: '500px' }}
+                name="message"
+                id="message" />
+              <StyledButton type="submit" disabled={isSubmitting}>Wyślij</StyledButton>
+            </form>
+          )}
+      </Formik>
 
 
-<StyledFacebook href="https://www.facebook.com/usasamochody/" target="_blank">Odwiedź nasz Facebook!</StyledFacebook>
+      <StyledFacebook href="https://www.facebook.com/usasamochody/" target="_blank">Odwiedź nasz Facebook!</StyledFacebook>
 
     </StyledWrapper>
 
-)
+  )
+}
 
 export default Contact
