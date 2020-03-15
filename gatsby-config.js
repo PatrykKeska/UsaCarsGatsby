@@ -1,6 +1,6 @@
 require('dotenv').config()
 module.exports = {
-  
+
   siteMetadata: {
     title: `KSMAK Cars, sprowadzamy samochody z USA!`,
     description: `Sprowadzamy samochody z Usa, mamy kilku letnie doświadczenie oraz umiejętności w tym co robimy.
@@ -20,7 +20,7 @@ module.exports = {
         path: `${__dirname}/src/assets/images`,
       },
     },
-       `gatsby-transformer-sharp`,
+    `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
 
     {
@@ -29,10 +29,17 @@ module.exports = {
         fonts: [
           {
             family: 'Ubuntu',
-            subsets:['latin-ext'],
+            subsets: ['latin-ext'],
             variants: ['400', '600', '700'],
           }
         ]
+      }
+    },
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        // The property ID; the tracking code won't be generated without it
+        trackingId: process.env.GOOGLE_ANALYTICS_TRACKING_ID || "none",
       }
     },
     {
