@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'; 
+import styled from 'styled-components';
 import Image from 'gatsby-image';
 
 
@@ -42,7 +42,7 @@ max-height: 200px;
 
 const StyledProductDescription = styled.p`
 width : 90%; 
-font-size: .5em; 
+font-size: .7em; 
 color : white; 
 margin : 5%; 
 text-align: center;
@@ -70,13 +70,13 @@ will-change: box-shadow;
 `
 
 
-const Product = ({data})=> ( 
-<StyledProduct>
-<StyledProductTittle>{data.carName}</StyledProductTittle>
-        <StyledProductImage fluid={data.carPhoto.fluid}/>
-<StyledProductDescription>{data.carDescription}</StyledProductDescription>
-<StyledButton target="_blank"  href={`${data.auctionLink}`}>Aukcja</StyledButton>
-        </StyledProduct>
+const Product = ({ data }) => (
+    <StyledProduct>
+        <StyledProductTittle>{data.carName}</StyledProductTittle>
+        <StyledProductImage fluid={data.carPhoto.fluid} />
+        <StyledProductDescription>{data.carDescription}</StyledProductDescription>
+        <StyledButton target="_blank" href={`${data.auctionLink}`}>Aukcja</StyledButton>
+    </StyledProduct>
 
 )
 

@@ -133,28 +133,30 @@ position : fixed;
 top: 50%; 
 left : 50%; 
 transform: translate(-50%,-50%); 
-background-color: whitesmoke;
+background-color: rgba(0,0,0,.9);
 display : flex; 
 justify-content : center; 
 align-items: center; 
 flex-direction : column; 
 z-index : 20; 
-box-shadow : 0 0 20px 5px black;
+box-shadow : 0 0 20px 5px white;
 
 h2{
-  color :#1EBDE0;
+  /* color :#1EBDE0; */
+  color :white;
   font-size : 1em;
   text-align : center; 
 }
 
 p { 
-  color : #1EBDE0;
+  color : white;
   font-size : .8em;
   text-align : center; 
 }
 
 button { 
   background : #1EBDE0; 
+  border:none; 
   color : white; 
   font-size : .9em; 
   width : 120px; 
@@ -178,7 +180,6 @@ const Contact = () => {
         <p>Postaramy się sprawnie udzielić odpowiedzi!</p>
         <button onClick={() => (setState(false))}>Zamknij</button>
       </ModalSubmited> : null}
-      {console.log(isSubmitted)}
       <StyledTittle>Zapraszamy do Kontaktu! </StyledTittle>
       <Formik
         initialValues={{ name: '', email: '', message: '' }}
